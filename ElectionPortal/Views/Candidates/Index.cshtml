@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ElectionPortal.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageMimeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post.PostName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.CandidateName, "Edit", new { id = item.CandidateId })
+            
+        </td>
+        <td>
+            @{
+                if (item.Picture != null)
+                {
+                    var bindisplay = "<binary>";
+                    @bindisplay
+                }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageMimeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post.PostName)
+        </td>
+        <td>
+            
+          @using (Html.BeginForm("Delete", "Candidates", FormMethod.Get))
+          {
+            
+            @Html.Hidden("id", item.CandidateId)
+            <input type="submit" value="Delete" />
+          }
+           
+        </td>
+    </tr>
+}
+
+</table>

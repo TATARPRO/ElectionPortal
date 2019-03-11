@@ -1,0 +1,40 @@
+﻿@model ElectionPortal.Models.RegNumber
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h2>RegNumber Details</h2>
+
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RegValue)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RegValue)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Present)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Present)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RegId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+

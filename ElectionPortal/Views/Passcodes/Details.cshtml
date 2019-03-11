@@ -1,0 +1,46 @@
+﻿@model ElectionPortal.Models.Passcode
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div>
+            <h4>Passcode Details</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CodeSerial)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CodeSerial)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RegNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RegNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsUsed)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsUsed)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.PassCodeId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model ElectionPortal.Models.Candidate
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Candidate</h4>
+            <hr />
+            @if (ViewBag.Base64String != "")
+            {
+                <img alt="candidate Image" src="@ViewBag.Base64String" width="249" height="307" />
+            }
+            <dl class="dl-horizontal">
+                
+                <dt>
+                    @Html.DisplayNameFor(model => model.CandidateName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CandidateName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Picture)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageMimeType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImageMimeType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Post.PostName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Post.PostName)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CandidateId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ElectionPortal.Models.Passcode>
+
+@{
+    ViewBag.Title = "Passcodes";
+}
+
+<h2>Passcodes</h2>
+
+<p>
+    @Html.ActionLink("Create single", "Create")
+</p>
+<p>
+    @Html.ActionLink("Create bulk", "CreateAmount")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeSerial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsUsed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSubmitted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           
+            @Html.ActionLink(item.CodeSerial, "Edit", new { id = item.PassCodeId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUsed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSubmitted)
+        </td>
+        <td>
+                      
+            @using (Html.BeginForm("Delete", "Passcodes", FormMethod.Get))
+            {
+
+                @Html.Hidden("id", item.PassCodeId)
+                <input type="submit" value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

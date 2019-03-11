@@ -1,0 +1,48 @@
+﻿@model ElectionPortal.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h2>Result Details</h2>
+
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CandidateName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CandidateName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.VoteCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.VoteCount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Post.PostName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Post.PostName)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CandidateId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+    </div>
+    <div class="col-lg-3"></div>
+</div>

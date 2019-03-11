@@ -1,0 +1,47 @@
+﻿@model ElectionPortal.Models.RegNumber
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <h2>Delete RegNumber</h2>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RegValue)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RegValue)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Present)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Present)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="col-lg-3"></div>
+</div>

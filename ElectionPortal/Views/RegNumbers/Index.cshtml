@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ElectionPortal.Models.RegNumber>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("Read from excel", "ExcelRegNumbers")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Present)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           
+            @Html.ActionLink(item.RegValue.ToString(), "Edit", new { id = item.RegId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Present)
+        </td>
+        <td>
+                      
+            @using (Html.BeginForm("Delete", "RegNumbers", FormMethod.Get))
+            {
+
+                @Html.Hidden("id", item.RegId)
+                <input type="submit" value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model ElectionPortal.Models.VotePanel
+
+<div class="row">
+    <div class="col-lg-4">
+        <style>            
+            .changeBack:hover
+            {
+                background-color: #ebd90b;
+                color:#000000;
+            }
+            .tr
+            {
+                 background-color:#000000;
+                 color:#1999d1;
+              }
+        </style>
+        <table class="table">
+            
+            @foreach (var it in Model.PostsCollection)
+            {
+                <tr class="changeBack tr">
+                    <td>
+                        @Html.HiddenFor(model => it.PostId)
+                        @Html.ActionLink(it.PostName, "SelectedPost", new { id = it.PostId })
+                    </td>
+                </tr>
+            }
+            <tr class="changeBack tr"><td>@Html.ActionLink("Submit votes", "SubmitLogout") </td></tr>
+        </table>
+    </div>
+
+    <div class="col-lg-8">
+
+        @if (Model.votes != null)
+        {
+            foreach (var ps in Model.votes)
+            {
+                <p>@ps</p>
+            }
+        }
+
+        <h4 class="text-danger">@ViewBag.InvalidCandidate</h4>
+        <h4 class="text-danger">@ViewBag.PasscodeUsed</h4>
+        <table class="table">
+            <tr></tr>
+
+            @foreach (var cand in Model.CandidatesCollection)
+            {
+                <tr>
+                    <td>
+                        @if (cand.Picture != "")
+                        {
+                            <img class="img-circle" alt="candidate Image" src="@cand.Picture" width="200" height="200" />
+                        }
+                        else
+                        {
+                            <img alt="candidate Image" src="" width="200" height="200" />
+                        }
+                        <div>@cand.CandidateName</div>
+                        @Html.ActionLink("Select Candidate", "SelectedCandidate", new { id = cand.CandidateId })
+                        
+                    </td>
+                   
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    
+    <link rel="stylesheet" href="../../Admin_files/base/styles.css" />
+    <link href="../../Admin_files/base/font-awesome.min.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                    <li>@Html.ActionLink("Election Portal", "ElectionLogin", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        @RenderBody()
+
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>Contact us</h4>
+                        <ul>
+                            <li>Eziobodo, Umuchem, Imo state - Nigeria</li>
+                            <li>Phone: +234 810 888 7204 | Fax: +22 724 2342 343 </li>
+                            <li>Email: <a href="mailto:tatarprofessional@gmail.com" title="Email Us">tatarprofesional@gmail.com</a></li>
+                            <li>Skype: <a href="skype:my.test?call" title="Skype us">my-company</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>Mailing list</h4>
+                        <p>FUTO Eziobodo, Umuchem.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col col-social-icons">
+                        <h4>Follow us</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-flickr"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-skype"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>Latest News</h4>
+                        <p>
+                            We are about to start our tutorials soon. Hurry now and enroll!
+                            <br><br>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+    <!--/.page-section-->
+    <section class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center"> Copyright @DateTime.Now.Year | All Rights Reserved tatarprofessional</div>
+            </div>
+            <!-- / .row -->
+        </div>
+    </section>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
